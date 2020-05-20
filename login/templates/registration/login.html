@@ -1,0 +1,26 @@
+<html>
+<head>
+    <h3>Login</h3>
+</head>
+
+<body>
+    {% if form.errors %}
+        {% for key,value in form.errors.items %}
+            {{ key }}:{{ value }}
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+    
+    {% csrf_token %}
+
+    <p>Username : {{ form.username }} </p>
+    <p>Password : {{ form.password }} </p>
+
+    <input type="submit" value="login">
+    <input type="hidden" name="next" value="{{ next }}">
+
+    </form>
+
+</body>
+</html>
