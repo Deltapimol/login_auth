@@ -1,26 +1,34 @@
 <html>
 <head>
-    <h3>Login</h3>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
-
 <body>
+    <div class="shadow-sm p-3 mb-5 bg-white rounded"> 
+        <h3>Login to your account</h3>
+    </div>
+    <div class="container-fluid">     
     {% if form.errors %}
         {% for key,value in form.errors.items %}
-            {{ key }}:{{ value }}
+            {{ value }} 
         {% endfor %}
     {% endif %}
-
-    <form method="post" action="{% url 'login' %}">
-    
-    {% csrf_token %}
-
-    <p>Username : {{ form.username }} </p>
-    <p>Password : {{ form.password }} </p>
-
-    <input type="submit" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-
-    </form>
-
+    <div class="form-group">
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Username : &nbsp {{ form.username }}</span>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Password : &nbsp&nbsp {{ form.password }}</span>
+            </div>
+        </div>
+            <input class="btn btn-primary" type="submit" value="Login">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+    </div>
 </body>
 </html>

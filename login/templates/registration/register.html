@@ -1,22 +1,27 @@
 <html>
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="shadow-sm p-3 mb-5 bg-white rounded"> 
+        <h3>Register account </h3>
+    </div>
+    <div class="container-fluid">
+        <div class="form-group">
+            <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
 
-<head>    
-    <h3>Register User</h3>
-</head>
+            {% if form.errors %}
+                {% for key, value in form.errors.items %}
+                    {{ value }}
+                {% endfor%}
+            {% endif %}
 
-<body>
-    <form method="post" action="{% url 'register' %}">
-        {% csrf_token %}
+            {{ form.as_p }}
 
-        {% if form.errors %}
-            {% for key, value in form.errors.items %}
-                {{ value }}
-            {% endfor%}
-        {% endif %}
-
-        {{ form }}
-        <input type="submit" value="Register">
-    </form>
-</body>
-
+                <br><input class="btn btn-info" type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+    </body>
 </html>
