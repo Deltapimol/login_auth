@@ -1,0 +1,16 @@
+<html>
+<head>
+
+</head>
+
+<body>
+    {% csrf_token %}
+    <p>First name: </p>{{ form.firstname }}
+    <p>Last name: </p>{{ form.lastname }}
+    <p>Email: </p>{{ form.email}}
+    <p>Password: </p>{{ form.password }}
+
+    <input type='submit' value='Register'>
+</body>
+
+</html>
