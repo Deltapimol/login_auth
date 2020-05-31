@@ -4,13 +4,20 @@
 </head>
 
 <body>
-    {% csrf_token %}
-    <p>First name: </p>{{ form.firstname }}
-    <p>Last name: </p>{{ form.lastname }}
-    <p>Email: </p>{{ form.email}}
-    <p>Password: </p>{{ form.password }}
 
+    <form method="post" action='{% url "userform" %}'>
+    {% csrf_token %}
+
+        {% if form.errors %}
+            {% for key, value in form.errors.items %}
+                <p>{{ value }}</p>
+            {% endfor %}
+        {% endif %}
+
+    {{ form.as_p }}
+    
     <input type='submit' value='Register'>
+    </form>
 </body>
 
 </html>
