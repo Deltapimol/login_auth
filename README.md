@@ -10,7 +10,7 @@
 ##### Log In Page
 
 -----------------------------------------------------------------------------------------------------------------------------------
-![alt text](https://github.com/Deltapimol/login_auth/blob/master/Screenshots/Login.JPG?raw=true)
+![alt text](https://github.com/Deltapimol/login_auth/blob/master/Screenshots/LoggedIn.JPG?raw=true)
 
 ----------------------------------------------------------------------------------------------------------------------------------
 ##### Logged In Page
